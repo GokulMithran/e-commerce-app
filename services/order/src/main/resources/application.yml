@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            token-uri: http://localhost:9098/realms/micro-services/protocol/openid-connect/token
+        registration:
+          common-client:
+            provider: keycloak
+            client-id: micro-services-api
+            client-secret: OuGhrZdImzLDCfkzgGe5uWG7pknsMuMk
+            authorization-grant-type: client_credentials
+            scope: openid
+
